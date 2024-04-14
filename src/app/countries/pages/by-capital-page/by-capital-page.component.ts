@@ -10,14 +10,18 @@ import { Capital } from '../../interfaces/capitals';
 export class ByCapitalPageComponent {
 
   public capitals: Capital[] = [];
+  public isLoading: boolean = false;
 
   constructor( private countriesService: CountriesService  ) {}
 
   searchByCapital(term: string): void {
 
+    this.isLoading = true;
+
     this.countriesService.searchCapital( term )
       .subscribe( countries => {
         this.capitals = countries;
+        this.isLoading = false;
       })
 
   }
