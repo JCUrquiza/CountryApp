@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { Capital } from '../../interfaces/capitals';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -9,7 +9,7 @@ import { Capital } from '../../interfaces/capitals';
 })
 export class ByCapitalPageComponent implements OnInit{
 
-  public capitals: Capital[] = [];
+  public capitals: Country[] = [];
   public isLoading: boolean = false;
   public initialValue: string = '';
 

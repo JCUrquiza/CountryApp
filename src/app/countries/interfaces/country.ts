@@ -19,13 +19,13 @@ export interface Country {
   translations: { [key: string]: Translation };
   latlng:       number[];
   landlocked:   boolean;
-  borders:      string[];
+  borders?:     string[];
   area:         number;
   demonyms:     Demonyms;
   flag:         string;
   maps:         Maps;
   population:   number;
-  gini:         Gini;
+  gini?:        { [key: string]: number };
   fifa:         string;
   car:          Car;
   timezones:    string[];
@@ -34,7 +34,7 @@ export interface Country {
   coatOfArms:   CoatOfArms;
   startOfWeek:  string;
   capitalInfo:  CapitalInfo;
-  postalCode:   PostalCode;
+  postalCode?:  PostalCode;
 }
 
 export interface CapitalInfo {
@@ -47,15 +47,20 @@ export interface Car {
 }
 
 export interface CoatOfArms {
-  png: string;
-  svg: string;
+  png?: string;
+  svg?: string;
 }
 
 export interface Currencies {
-  ARS: Ars;
+  CRC?: Clp;
+  YER?: Clp;
+  USD?: Clp;
+  CLP?: Clp;
+  DOP?: Clp;
+  EUR?: Clp;
 }
 
-export interface Ars {
+export interface Clp {
   name:   string;
   symbol: string;
 }
@@ -71,13 +76,9 @@ export interface Eng {
 }
 
 export interface Flags {
-  png: string;
-  svg: string;
-  alt: string;
-}
-
-export interface Gini {
-  "2019": number;
+  png:  string;
+  svg:  string;
+  alt?: string;
 }
 
 export interface Idd {
@@ -86,8 +87,10 @@ export interface Idd {
 }
 
 export interface Languages {
-  grn: string;
-  spa: string;
+  spa?: string;
+  ara?: string;
+  eng?: string;
+  ita?: string;
 }
 
 export interface Maps {
@@ -102,8 +105,10 @@ export interface Name {
 }
 
 export interface NativeName {
-  grn: Translation;
-  spa: Translation;
+  spa?: Translation;
+  ara?: Translation;
+  eng?: Translation;
+  ita?: Translation;
 }
 
 export interface Translation {

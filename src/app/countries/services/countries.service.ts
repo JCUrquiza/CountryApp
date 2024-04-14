@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, delay, map, of, tap } from 'rxjs';
-import { Capital } from '../interfaces/capitals';
+import { Country } from '../interfaces/country';
 import { CacheStore } from '../interfaces/cache-store.interface';
 import { Region } from '../interfaces/region.type';
 
@@ -18,23 +18,23 @@ export class CountriesService {
 
   constructor( private http: HttpClient ) {}
 
-  private getCountriesRequest(url: string): Observable<Capital[]> {
-    return this.http.get<Capital[]>(url)
+  private getCountriesRequest(url: string): Observable<Country[]> {
+    return this.http.get<Country[]>(url)
       .pipe(
         catchError( () => of([])),
         // delay( 2000 )
       );
   }
 
-  searchCountryByAlphaCode(code: string): Observable<Capital | null> {
-    return this.http.get<Capital[]>(`${this.apiURL}/alpha/${code}`)
+  searchCountryByAlphaCode(code: string): Observable<Country | null> {
+    return this.http.get<Country[]>(`${this.apiURL}/alpha/${code}`)
       .pipe(
         map( countries => countries.length > 0 ? countries[0] : null ),
         catchError( () => of(null))
       );
   }
 
-  searchCapital(term: string): Observable<Capital[]> {
+  searchCapital(term: string): Observable<Country[]> {
     const url = `${ this.apiURL }/capital/${ term }`;
     return this.getCountriesRequest( url )
       .pipe(
@@ -42,7 +42,7 @@ export class CountriesService {
       );
   }
 
-  searchCountry(term: string): Observable<Capital[]> {
+  searchCountry(term: string): Observable<Country[]> {
     const url = `${ this.apiURL }/name/${ term }`;
     return this.getCountriesRequest( url )
     .pipe(
@@ -50,7 +50,7 @@ export class CountriesService {
     );
   }
 
-  searchRegion(region: Region): Observable<Capital[]> {
+  searchRegion(region: Region): Observable<Country[]> {
     const url = `${ this.apiURL }/region/${ region }`;
     return this.getCountriesRequest( url )
     .pipe(

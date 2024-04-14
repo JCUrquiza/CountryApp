@@ -1,4 +1,4 @@
-import { Capital } from "./capitals";
+import { Country } from "./country";
 import { Region } from "./region.type";
 
 export interface CacheStore {
@@ -9,10 +9,10 @@ export interface CacheStore {
 
 export interface TermCountries {
   term: string;
-  countries: Capital[];
+  countries: Country[];
 }
 
 export interface RegionCountries {
   region: Region;
-  countries: Capital[];
+  countries: Country[];
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { CountriesService } from '../../services/countries.service';
-import { Capital } from '../../interfaces/capitals';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-country-page',
@@ -11,7 +11,7 @@ import { Capital } from '../../interfaces/capitals';
 })
 export class CountryPageComponent implements OnInit {
 
-  public country?: Capital;
+  public country?: Country;
 
   constructor(
     private activatedRoute: ActivatedRoute,

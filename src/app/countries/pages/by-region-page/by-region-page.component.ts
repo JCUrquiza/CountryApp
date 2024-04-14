@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { Capital } from '../../interfaces/capitals';
+import { Country } from '../../interfaces/country';
 import { Region } from '../../interfaces/region.type';
 
 @Component({
@@ -10,7 +10,7 @@ import { Region } from '../../interfaces/region.type';
 })
 export class ByRegionPageComponent implements OnInit {
 
-  public countries: Capital[] = [];
+  public countries: Country[] = [];
   public isLoading: boolean = false;
   public regions:  Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   public selectedRegion?: Region;
